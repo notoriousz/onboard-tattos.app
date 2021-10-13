@@ -1,5 +1,9 @@
-from ..manage import Connection
+from ..manage import DBConnection
 
-class Tatuador(Connection):
+class Tatuador(DBConnection):
     def __init__(self):
-        Connection.__init__()
+        DBConnection.__init__()
+
+
+
+test = Tatuador()

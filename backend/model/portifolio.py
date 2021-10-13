@@ -1,5 +1,5 @@
-from ..manage import Connection
+from tatuador import Tatuador
 
-class Portifolio(Connection):
+class Portifolio(Tatuador):
     def __init__(self):
-        Connection.__init__()
+        Tatuador.__init__()
