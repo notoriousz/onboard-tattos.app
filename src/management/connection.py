@@ -1,13 +1,14 @@
 import psycopg2 as database
-from config.db_config import config
+from .db_config import config
 
 class DBConnection:
     ''' PostgreSQL database connection '''
     def __init__(self):
         self.__params = config() # Get the file database.ini with de pairs key-value with configuration
         try:
-            self.conn = database.connect(**self.__params) # connection to database
-            self.cur = self.conn.cursor()
+            self.__conn = database.connect(**self.__params) # connection to database
+            self.__cur = self.__conn.cursor()
+            print(self.__conn)
             print('##### Connected #####\n')
         except(Exception, database.DatabaseError) as error:
             print(error)
@@ -24,13 +25,13 @@ class DBConnection:
 
     @property
     def connection(self):
-        # Property to manipulate connection
-        return self.conn
+        ''' Property to manipulate connection '''
+        return self.__conn
 
     @property
     def cursor(self):
-        # Property to manipulate cursor
-        return self.cur
+        ''' Property to manipulate cursor '''
+        return self.__cur
 
     def execute(self, sql, params=None):
         '''
@@ -48,9 +49,9 @@ class DBConnection:
         return self.fetchall()
 
     def commit(self):
-        # add the changes
+        ''' add the changes '''
         return self.connection.commit()
 
     def fetchall(self):
-        # return registrys with SQL instruction
+        ''' return registrys with SQL instruction '''
         return self.cursor.fetchall()
