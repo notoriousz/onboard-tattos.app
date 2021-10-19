@@ -8,7 +8,6 @@ class DBConnection:
         try:
             self.__conn = database.connect(**self.__params) # connection to database
             self.__cur = self.__conn.cursor()
-            print(self.__conn)
             print('##### Connected #####\n')
         except(Exception, database.DatabaseError) as error:
             print(error)
@@ -39,7 +38,7 @@ class DBConnection:
         the execute instruction necessite a SQL command with params or a empty tuple
         '''
         self.cursor.execute(sql, params or ())
-    
+
     def query(self, sql, params=None):
         '''
         execute the SQL commands but return the query

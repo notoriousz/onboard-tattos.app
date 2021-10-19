@@ -1,6 +1,6 @@
 import pytest
 import os
-from ..database.connection import DBConnection
+from ..management.connection import DBConnection
 
 class TestDB:
     def connection(self):

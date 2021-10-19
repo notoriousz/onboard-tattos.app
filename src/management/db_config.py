@@ -16,6 +16,3 @@ def config(filename="database.ini", section="postgresql"):
     else:
         raise Exception(f"Section {section} has no found")
     return db
-
-if __name__ == '__main__':
-    print(config())
