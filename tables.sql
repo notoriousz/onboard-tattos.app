@@ -13,10 +13,10 @@ CREATE TABLE public.tatuador
 
 CREATE TABLE public.portifolio
 (
-    images character varying(1000),
     id_tatuador integer NOT NULL,
     created_at date NOT NULL DEFAULT CURRENT_DATE,
-    update_at date
+    update_at date,
+    images character varying(1000)
 );
 
 ALTER TABLE IF EXISTS public.tatuador and public portifolio

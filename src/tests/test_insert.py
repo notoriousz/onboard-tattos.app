@@ -22,7 +22,7 @@ class TestINSERT:
     @pytest.mark.parametrize('image,id_tatuador', [('pytest.png', 9999)])
     def test_insert_portfolio(self, image, id_tatuador):
         portfolio = Portifolio()
-        portfolio.create_portifolio(image, id_tatuador) # create the portfolio test
+        portfolio.insert_portifolio(image, id_tatuador) # create the portfolio test
         connect = DBConnection()
         sql = f"SELECT images FROM public.portifolio WHERE images = 'pytest.png'" # select the portfolio created
         connect.execute(sql)
