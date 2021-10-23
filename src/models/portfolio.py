@@ -6,10 +6,10 @@ class Portifolio(DBConnection):
     def __init__(self):
         DBConnection.__init__(self)
 
-    def insert_portifolio(self, imagem:list[str], id:int):
+    def insert_portifolio(self, imagem, id:int):
         try:
-            sql_portfolio = 'INSERT INTO portifolio (images, id_tatuador) VALUES (%s, %s)'
-            self.execute(sql_portfolio, (imagem, id)) # create portfolio
+            SQL_INSERT = 'INSERT INTO portifolio (images, id_tatuador) VALUES (%s, %s)'
+            self.execute(SQL_INSERT, (imagem, id)) # create portfolio
             self.commit() # Save additions
             print('Create Portifolio with Success')
         except Exception as e:
@@ -17,13 +17,13 @@ class Portifolio(DBConnection):
 
     def delete_portifolio(self, id:int):
         try:
-            sql = f"SELECT * FROM public.portifolio WHERE id_tatuador='{id}'"
-            verify = self.query(sql)
+            SQL_QUERY = f"SELECT * FROM public.portifolio WHERE id_tatuador='{id}'"
+            verify = self.query(SQL_QUERY)
             print(verify)
             # verify if the id exists
             if verify[0][0] == id:
-                sql_delete = f"DELETE FROM public.portifolio WHERE id_tatuador='{id}'"
-                self.execute(sql_delete) # delete data
+                SQL_DELETE = f"DELETE FROM public.portifolio WHERE id_tatuador='{id}'"
+                self.execute(SQL_DELETE) # delete data
                 self.commit()
                 print(f'Deleted portfolio {verify} with Success')
         except Exception as e:
