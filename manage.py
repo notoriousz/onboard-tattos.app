@@ -10,7 +10,13 @@ port = Portifolio()
 
 # port.delete_portifolio(5)
 # tatto.delete_tattoo_artist(23)
+# tatto.insert_tattoo_artist('pytest', 'test@gmail', '99999', 'rua test')
+# tatto.insert_tattoo_artist('pytest', 'test@gmail', '99999', 'rua test')
+# tatto.insert_tattoo_artist('pytest', 'test@gmail', '99999', 'rua test')
 
+# print(port.read_portifolio())
+
+# print(tatto.read_tattoo_artist(160))
 
 # port.insert_portifolio(['https://static1.purepeople.com.br/articles/4/28/87/24/@/3274417-neymar-faz-provocacao-na-web-e-modelo-ap-950x0-5.jpg'], 5)
 
