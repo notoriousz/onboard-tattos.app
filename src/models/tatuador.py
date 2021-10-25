@@ -50,8 +50,11 @@ class Tatuador(DBConnection):
             except Exception as e:
                 print('Error to read tattoo artist:', e)
 
-    def update_tattoo_artist(self):
+    def update_tattoo_artist(self, id, *args):
         try:
-            pass
-        except:
-            pass
+            SQL_UPDATE = f'UPDATE public.tatuador SET name = %s, email = %s, telefone = %s, address = %s WHERE id = {id}'
+            self.execute(SQL_UPDATE, args)
+            self.commit()
+            return 'Update with success'
+        except Exception as e:
+           print(f'Error to update:', e)

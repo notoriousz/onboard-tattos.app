@@ -51,6 +51,7 @@ class Portifolio(DBConnection):
 
 
     def insert_images(self):
+        ''' Update a Portfolio specific if pass the ID, or return all'''
         try:
             pass
         except:

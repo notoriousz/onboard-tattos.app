@@ -10,7 +10,6 @@ CREATE TABLE public.tatuador
     PRIMARY KEY (id)
 );
 
-
 CREATE TABLE public.portifolio
 (
     id_tatuador integer NOT NULL,
@@ -19,5 +18,5 @@ CREATE TABLE public.portifolio
     images character varying(1000)
 );
 
-ALTER TABLE IF EXISTS public.tatuador and public portifolio
+ALTER TABLE IF EXISTS public.tatuador and public.portifolio
     OWNER to postgres;
