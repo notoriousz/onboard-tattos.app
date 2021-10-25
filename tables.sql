@@ -6,7 +6,7 @@ CREATE TABLE public.tatuador
     telefone character varying(25) NOT NULL,
     address character varying(255) NOT NULL,
     created_at date NOT NULL DEFAULT CURRENT_DATE,
-    update_at character varying(25),
+    update_at character varying(50),
     PRIMARY KEY (id)
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE public.portifolio
 (
     id_tatuador integer NOT NULL,
     created_at date NOT NULL DEFAULT CURRENT_DATE,
-    update_at date,
+    update_at character varying(50),
     images character varying(1000)
 );
 

@@ -13,15 +13,15 @@ class TestINSERT:
         fetch = tattoo_artist.cursor.fetchone()
         assert fetch[0] == 'test@gmail'
 
-    @pytest.mark.parametrize('image, id_tatuador', [(['pytest.png'], 9999)])
+    @pytest.mark.parametrize('image, id_tatuador', [('pytest.png', 9999)])
     def test_insert_portfolio(self, image, id_tatuador):
         ''' Insert Operation in Portifolio'''
         portfolio = Portifolio()
         portfolio.insert_portifolio(image, id_tatuador)
-        SQL_QUERY = "SELECT images FROM public.portifolio WHERE images = '{pytest.png}'"
+        SQL_QUERY = "SELECT images FROM portifolio WHERE images = 'pytest.png'"
         portfolio.execute(SQL_QUERY)
         fetch = portfolio.cursor.fetchone()
-        assert fetch[0][0] == 'pytest.png'
+        assert fetch[0] == 'pytest.png'
 
     def test_delete_tatuador(self):
         ''' Delete Operation in Tatuador'''
@@ -39,7 +39,7 @@ class TestINSERT:
         ''' Delete Operation in Portifolio'''
         portfolio = Portifolio()
         portfolio.delete_portifolio(9999)
-        SQL_QUERY = f"SELECT images FROM public.portifolio WHERE EXISTS(SELECT 9999)"
+        SQL_QUERY = f"SELECT images FROM portifolio WHERE id_tatuador=9999"
         portfolio.execute(SQL_QUERY)
-        verify_exists = portfolio.cursor.fetchone()
-        assert verify_exists == None
+        fetch = portfolio.cursor.fetchone()
+        assert fetch == None

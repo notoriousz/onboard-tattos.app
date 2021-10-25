@@ -8,7 +8,7 @@ class DBConnection:
         try:
             self.__conn = database.connect(**self.__params) # connection to database
             self.__cur = self.__conn.cursor()
-            print('##### Connected #####\n')
+            print('##### Connected in database #####\n')
         except(Exception, database.DatabaseError) as error:
             print(error)
 

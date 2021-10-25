@@ -55,12 +55,15 @@ class Tatuador(DBConnection):
             # SQL instruction to update the values
             SQL_UPDATE = f'UPDATE public.tatuador SET name = %s, email = %s, telefone = %s, address = %s WHERE id = {id}'
             self.execute(SQL_UPDATE, args)
-            # When we have a update, we set a new update_at camp
-            current_date = datetime.today()
-            actual = current_date.strftime('%A, %B %d, %Y %H:%M:%S')
-            update_at_sql = f"UPDATE tatuador SET update_at = '{actual}' WHERE id = {id}"
-            self.execute(update_at_sql)
+            self.update_at(id)
             self.commit()
             return 'Update with success'
         except Exception as e:
            print(f'Error to update:', e)
+
+    def update_at(self, id):
+        ''' att update_at camp'''
+        current_date = datetime.today()
+        actual = current_date.strftime('%A, %B %d, %Y %H:%M:%S')
+        update_at_sql = f"UPDATE portifolio SET update_at = '{actual}' WHERE id_tatuador = {id}"
+        self.execute(update_at_sql)

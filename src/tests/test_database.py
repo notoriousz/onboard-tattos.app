@@ -27,3 +27,4 @@ class TestDB:
         Execute a SQL command, if return True, we are connected
         '''
         assert self.connection() == True
+        
