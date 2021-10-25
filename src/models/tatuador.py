@@ -1,6 +1,5 @@
-from abc import abstractclassmethod
 from ..management.connection import DBConnection
-from datetime import time
+from datetime import datetime
 
 class Tatuador(DBConnection):
     def __init__(self):
@@ -51,9 +50,16 @@ class Tatuador(DBConnection):
                 print('Error to read tattoo artist:', e)
 
     def update_tattoo_artist(self, id, *args):
+        ''' Update the values for tattoo artist '''
         try:
+            # SQL instruction to update the values
             SQL_UPDATE = f'UPDATE public.tatuador SET name = %s, email = %s, telefone = %s, address = %s WHERE id = {id}'
             self.execute(SQL_UPDATE, args)
+            # When we have a update, we set a new update_at camp
+            current_date = datetime.today()
+            actual = current_date.strftime('%A, %B %d, %Y %H:%M:%S')
+            update_at_sql = f"UPDATE tatuador SET update_at = '{actual}' WHERE id = {id}"
+            self.execute(update_at_sql)
             self.commit()
             return 'Update with success'
         except Exception as e:

@@ -6,7 +6,7 @@ CREATE TABLE public.tatuador
     telefone character varying(25) NOT NULL,
     address character varying(255) NOT NULL,
     created_at date NOT NULL DEFAULT CURRENT_DATE,
-    update_at date,
+    update_at character varying(25),
     PRIMARY KEY (id)
 );
 

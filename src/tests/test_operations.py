@@ -26,11 +26,11 @@ class TestINSERT:
     def test_delete_tatuador(self):
         ''' Delete Operation in Tatuador'''
         tattoo_artist = Tatuador()
-        SQL_QUERY_ID = f"SELECT id FROM public.tatuador WHERE name = 'pytest' ;"
+        SQL_QUERY_ID = f"SELECT id FROM public.tatuador WHERE name = 'pytest'"
         tattoo_artist.execute(SQL_QUERY_ID)
         fetch_id = tattoo_artist.cursor.fetchone()
         tattoo_artist.delete_tattoo_artist(fetch_id[0])
-        SQL_QUERY = f"SELECT name FROM public.tatuador WHERE EXISTS(SELECT 'pytest')"
+        SQL_QUERY = f"SELECT id FROM public.tatuador WHERE name = 'pytest'"
         tattoo_artist.execute(SQL_QUERY)
         verify = tattoo_artist.cursor.fetchone()
         assert verify == None
