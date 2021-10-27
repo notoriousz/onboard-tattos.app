@@ -52,10 +52,7 @@ class Portifolio(DBConnection):
         try:
             SQL_INSERT = f"UPDATE portifolio SET images = '{images}' WHERE id_tatuador = {id}"
             self.execute(SQL_INSERT, images)
-            current_date = datetime.today()
-            actual = current_date.strftime('%A, %B %d, %Y %H:%M:%S')
-            update_at_sql = f"UPDATE portifolio SET update_at = '{actual}' WHERE id_tatuador = {id}"
-            self.execute(update_at_sql)
+            self.update_at(id)
             self.commit()
             return 'Images add with success'
         except Exception as e:
@@ -77,3 +74,4 @@ class Portifolio(DBConnection):
         actual = current_date.strftime('%A, %B %d, %Y %H:%M:%S')
         update_at_sql = f"UPDATE portifolio SET update_at = '{actual}' WHERE id_tatuador = {id}"
         self.execute(update_at_sql)
+        

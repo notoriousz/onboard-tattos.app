@@ -54,3 +54,4 @@ class DBConnection:
     def fetchall(self):
         ''' return registrys with SQL instruction '''
         return self.cursor.fetchall()
+        
