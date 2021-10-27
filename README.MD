@@ -1,7 +1,44 @@
-## Onboard Tattoos Artists
+## Onboard Tattoo Artists
 
-With Python and PostgreSQL
+## What is it?
 
-![Screenshot from 2021-10-25 15-08-06](https://user-images.githubusercontent.com/64628014/138747555-d113e179-1608-43dc-8d75-20cd61b82bac.png)
+This is a backend application with PostgreSQL relational database. We insert tattoo artists and their respective portfolios. The data can be created, read, updated, and delete. I preferred to use the separate tables created with SQL, a public table for tattoo artists, and a public table for portfolios. The primary key in the first table connects both tables.
 
-![Screenshot from 2021-10-25 15-09-13](https://user-images.githubusercontent.com/64628014/138747650-b4dea0b7-8577-4272-ad33-789287af91b3.png)
+
+## Tables created with SQL
+
+Sample to tattoo artist table
+
+![Screenshot from 2021-10-26 22-59-58](https://user-images.githubusercontent.com/64628014/138987247-7bf8b139-569a-4807-9efa-75b34a6a0fe0.png)
+
+Sample to portfolio table
+
+![Screenshot from 2021-10-26 23-00-31](https://user-images.githubusercontent.com/64628014/138987291-f5cc0332-f7af-482f-be61-2bf38ad17b4e.png)
+
+
+## How to run?
+
+Clone this repository in a directory
+
+~~~
+git clone https://github.com/notoriousz/onboard-tattos-app.git
+~~~
+
+Install dependencies
+~~~
+pip install -r requirements.txt
+~~~
+
+Change the files database.ini to connect in postgresql
+~~~
+[postgresql]
+host=localhost
+database=databasename
+user=myuser
+password=mypasswod
+~~~
+
+Run Script to start
+~~~
+python manage.py
+~~~
