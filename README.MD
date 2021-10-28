@@ -35,7 +35,7 @@ Change the files database.ini to connect in postgresql
 host=localhost
 database=databasename
 user=myuser
-password=mypasswod
+password=mypassword
 ~~~
 
 Run Script to start
